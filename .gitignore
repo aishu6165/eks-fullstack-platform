@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# Terraform
+# ---------------------------------------------------------------------------
+# Local .terraform directories (providers, downloaded modules)
+**/.terraform/*
+**/.terraform.tfstate.lock.info
+
+# State files - NEVER commit (contain resource data, IDs, and secrets)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Variable files - may contain environment-specific / sensitive values
+*.tfvars
+*.tfvars.json
+
+# Plan output files
+*.tfplan
+*.tfplan.*
+
+# Override files (local-only overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config
+.terraformrc
+terraform.rc
+
+# NOTE: .terraform.lock.hcl is intentionally NOT ignored - it should be committed.
+
+# ---------------------------------------------------------------------------
+# Node / apps (backend + frontend)
+# ---------------------------------------------------------------------------
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env
+.env.*
+.vite/
+
+# ---------------------------------------------------------------------------
+# AWS / credentials (should never be in the repo)
+# ---------------------------------------------------------------------------
+.aws/
+*.pem
+credentials
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# ---------------------------------------------------------------------------
+# Personal notes (keep private - remove these lines if you want to publish them)
+# ---------------------------------------------------------------------------
+interview-prep.md
+failure-scenarios.md
+project-eks/
+STEADY-STATE-RUNBOOK.md
