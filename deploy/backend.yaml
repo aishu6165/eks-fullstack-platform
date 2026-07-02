@@ -9,6 +9,8 @@ kind: ServiceAccount
 metadata:
   name: backend
   namespace: app
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::<account>:role/backend-app-irsa-iam-role
 # NOTE: namespace "app" + service account "backend" must match the
 # aws_eks_pod_identity_association, or the pod gets no DynamoDB credentials.
 ---
@@ -18,7 +20,7 @@ metadata:
   name: backend
   namespace: app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -30,7 +32,7 @@ spec:
       serviceAccountName: backend
       containers:
         - name: backend
-          image: 023192524594.dkr.ecr.us-east-1.amazonaws.com/backend/nodejs:latest
+          image: <account>.dkr.ecr.us-east-1.amazonaws.com/backend/nodejs:latest
           ports:
             - containerPort: 3000
           env:
